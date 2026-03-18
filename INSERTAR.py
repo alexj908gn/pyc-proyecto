@@ -10,7 +10,7 @@ VALUES (?, ?, ?, ?)
 ''', (4, 1, "Juan", "mari"))
 
 # Insertar múltiples registros
-participantes = [
+participantes = [   
     (1, 2, "Ana", "negro"),
     (2, 3, "Luis", "aguacate"),
     (3, 4, "Marta", "ibai")
