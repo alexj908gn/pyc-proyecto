@@ -3,23 +3,19 @@ import sqlite3
 conexion = sqlite3.connect("la_velada.db")
 cursor = conexion.cursor()
 
-# Insertar un registro
-cursor.execute('''
-INSERT INTO Caracteristicas (id_caracteristicas, id_participantes, nombre,peso,Altura, Estilo) 
-VALUES (?, ?, ?, ?,?,?)
-''', (1, 1, "David", 88,170,"diestro"))
+class Insertar_Caracteristicas:
+    def __init__(self, id_caracteristicas, id_participante, nombre, peso, Altura, Estilo):
+        self.id_caracteristicas = id_caracteristicas
+        self.id_participante = id_participante
+        self.nombre = nombre
+        self.peso = peso
+        self.Altura = Altura
+        self.Estilo = Estilo
 
-
-participantes = [
-    (2, 2, "Samantha", 40,160,"ambidiestro"),
-    (3, 3, "Carlos",80,170,"diestro"),
-    (4, 4, "Ibia",83,173,"diestro")
-]
-
-cursor.executemany('''
-INSERT INTO Caracteristicas (id_caracteristicas, id_participantes, nombre,peso,Altura, Estilo) 
-VALUES (?, ?, ?, ?,?,?)
-''', participantes)
+    def insertar_datos(self):
+        cursor.execute("INSERT INTO caracteristicas (id_caracteristicas, id_participante, nombre, peso, altura, estilo) VALUES (?, ?, ?, ?, ?, ?)",
+                       (self.id_caracteristicas, self.id_participante, self.nombre, self.peso, self.Altura, self.Estilo))
+        print("Datos insertados correctamente.")
 
 conexion.commit()
 conexion.close()

@@ -3,23 +3,19 @@ import sqlite3
 conexion = sqlite3.connect("la_velada.db")
 cursor = conexion.cursor()
 
-# Insertar un registro
-cursor.execute('''
-INSERT INTO Participantes (id_participantes, id_caracteristicas, nombre, canal_de_internet) 
-VALUES (?, ?, ?, ?)
-''', (4, 1, "Juan", "mari"))
+class Insertar_Partcipantes :
+    def __init__(self, id_participante, id_caracteristica, nombre, canal_de_internet):
+        self.id_participante = id_participante
+        self.id_caracteristica = id_caracteristica
+        self.nombre = nombre
+        self.canal_de_internet = canal_de_internet
 
-# Insertar múltiples registros
-participantes = [   
-    (1, 2, "Ana", "negro"),
-    (2, 3, "Luis", "aguacate"),
-    (3, 4, "Marta", "ibai")
-]
 
-cursor.executemany('''
-INSERT INTO Participantes (id_participantes, id_caracteristicas, nombre, canal_de_internet) 
-VALUES (?, ?, ?, ?)
-''', participantes)
+    def insertar_datos(self):
+        cursor.execute("INSERT INTO participantes (id_ participantes,id_caracteristicas,nombre, canal_de_internet) VALUES (?, ?, ?, ?)",
+                       (self.id_participante, self.id_caracteristica, self.nombre, self.canal_de_internet))
+        conexion.commit()
+        print("Datos insertados correctamente.")
 
-conexion.commit()
+        
 conexion.close()
