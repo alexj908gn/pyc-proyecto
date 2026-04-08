@@ -14,7 +14,7 @@ class CaracteristicasDB:
         )
         self.conexion.commit()
         print("✅ Datos insertados.")
-
+   
     # ✅ MOSTRAR TODOS
     def mostrar(self):
         self.cursor.execute("SELECT * FROM caracteristicas")
