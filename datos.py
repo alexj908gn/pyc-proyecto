@@ -178,28 +178,64 @@ class mostrar_datos_combates:
         else:
             print("No hay datos en la tabla.")
 class llamar:
- # 👉 caracteristicas 
- caracteristicas_del_participante = Insertar_Caracteristicas()
-# 👉 Insertar datos
- caracteristicas_del_participante.insertar_datos()
+ def insertar_datos(self):
+     participantes = Insertar_Partcipantes(1, 1, "El Xokas", "ElXokas")
+     participantes.insertar_datos()
 
+     caracteristicas = Insertar_Caracteristicas(1, 1, "El Xokas", 85, 180, "boxeo")
+     caracteristicas.insertar_datos()
 
- #👉 participantes
- participantes = Insertar_Partcipantes()
- # 👉 Insertar datos
- participantes.insertar_datos()
+     combates = combates(1, 1, 2, "El Xokas", "Reven", "boxeo")
+     combates.insertar_datos()
+ def actualizar_datos(self):
+    actualizar_participante = actualizar_datos_participantes(1, "El Xokas Actualizado")
+    actualizar_participante.actualizar_nombre()
 
-#👉 Combates
-combates = combates()
-# 👉 Insertar datos
-combates.insertar_datos()
-#👉 Actualizar datos participante
-caracteristicas_del_participante = actualizar_datos_participantes()
+    actualizar_canal = actualizar_datos_participantes(1, "ElXokasActualizado")
+    actualizar_canal.actualizar_canal("ElXokasActualizado")
 
-#👉 Actualizar datos caracteristicas
-caracteristicas = actualizar_datos_caracteristicas(1,1 90, 180, "boxeo")
+    actualizar_id_caracteristica = actualizar_datos_participantes(1, 2)
+    actualizar_id_caracteristica.actualizar_id_caracteristica(2)
 
-#👉 Actualizar datos combates
-combates = actualizar_datos_combates()
+    actualizar_nombre_caracteristica = actualizar_datos_caracteristicas(1, 85, 180, "boxeo")
+    actualizar_nombre_caracteristica.actualizar_nombre("El Xokas Actualizado")
+
+    actualizar_id_caracteristica = actualizar_datos_caracteristicas(1, 85, 180, "boxeo")
+    actualizar_id_caracteristica.actualizar_id_caracteristica(2)
+
+    actualizar_peso = actualizar_datos_caracteristicas(1, 85, 180, "boxeo")
+    actualizar_peso.actualizar_peso(90)
+
+    actualizar_altura = actualizar_datos_caracteristicas(1, 85, 180, "boxeo")
+    actualizar_altura.actualizar_altura(185)
+
+    actualizar_estilo = actualizar_datos_caracteristicas(1, 85, 180, "boxeo")
+    actualizar_estilo.actualizar_estilo("kickboxing")
+
+    actualizar_tipo_combate = actualizar_datos_combates(1, "boxeo")
+    actualizar_tipo_combate.actualizar_tipo()
+
+    actualizar_nombre2 = actualizar_datos_combates(1, "boxeo")
+    actualizar_nombre2.actualizar_nombre2("Reven Actualizado")
+ def eliminar_datos(self):
+    eliminar_participante = eliminar_datos_participantes(1)
+    eliminar_participante.eliminar_participante()
+
+    eliminar_caracteristica = eliminar_datos_caracteristicas(1)
+    eliminar_caracteristica.eliminar_caracteristica()
+
+    eliminar_combate = eliminar_datos_combates(1)
+    eliminar_combate.eliminar_combate()
+ def mostrar_datos(self):
+    mostrar_participantes = mostrar_datos_participantes()
+    mostrar_participantes.mostrar_todos()
+
+    mostrar_caracteristicas = mostrar_datos_caracteristicas()
+    mostrar_caracteristicas.mostrar_todos()
+
+    mostrar_combates = mostrar_datos_combates()
+    mostrar_combates.mostrar_todos()
+ 
 
 conexion.close()
+
