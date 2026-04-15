@@ -3,7 +3,7 @@ import sqlite3
 conexion = sqlite3.connect("la_velada.db")
 cursor = conexion.cursor()
 
-class Partcipantes :
+class Participantes :
     def __init__(self, id_participante, id_caracteristica, nombre, canal_de_internet):
         self.id_participante = id_participante
         self.id_caracteristica = id_caracteristica
@@ -24,6 +24,12 @@ class Partcipantes :
         cursor.execute("DELETE FROM Participantes WHERE id_participantes = ?", (self.id_participante,))
         conexion.commit()
         print("Datos eliminados correctamente.")
+    def consultar_participantes(self,fila,resultado):
+        cursor.execute("SELECT * FROM Participantes WHERE id_participantes = ?", (self.id_participante,))
+        resultado = cursor.fetchall()
+        for fila in resultado:
+             print(fila)
+        
 class Caracteristicas:
     def __init__(self, id_caracteristicas, id_participante, nombre, peso, Altura, Estilo):
         self.id_caracteristicas = id_caracteristicas
@@ -71,3 +77,7 @@ class combates:
         print("Datos eliminados correctamente.")
 conexion.close()
 
+# participantes
+consultar_participantes = Participantes(1, 1, "David", "theGrefg")
+consultar_participantes.consultar_participantes("fila", "resultado")
+# combates
