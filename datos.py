@@ -118,6 +118,11 @@ class combates:
         cursor.execute("DELETE FROM Combates WHERE id_combate = ?", (self.id_combate,))
         conexion.commit()
         print("Datos eliminados correctamente.")
+    def consultar_combates(self,fila,resultado):
+        cursor.execute("SELECT * FROM Combates WHERE id_combate = ?", (self.id_combate,))
+        resultado = cursor.fetchall()
+        for fila in resultado:
+             print(fila)
 print("Bienvenido al sistema de gestión de la Velada del Año")
 llamar = menu()
 def menu():
