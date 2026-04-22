@@ -128,8 +128,15 @@ def menu():
         print("2. Actualizar participante")
         print("3. Eliminar participante")
         print("4. Consultar participante")
-        print("5. Salir")
-
+        print("5. Insertar características")
+        print("6. Actualizar características")
+        print("7. Eliminar características")
+        print("8. Consultar características")
+        print("9. Insertar combate")
+        print("10. Actualizar combate")
+        print("11. Eliminar combate")
+        print("12. Consultar combate")
+        print("13. Salir")
         opcion = input("Elige una opción: ")
 
         if opcion == "1":
@@ -163,6 +170,47 @@ def menu():
             print("Saliendo del programa...")
             break
         elif opcion == "6":
+            id_c = int(input("ID características a actualizar: "))
+            peso = float(input("Nuevo peso: "))
+            altura = float(input("Nueva altura: "))
+            Estilo = input("Nuevo estilo: ")
+
+            c = Caracteristicas(id_c, peso, altura, Estilo)
+            c.actualizar_caracteristicas(peso, altura, Estilo)
+        elif opcion == "7":
+            id_c = int(input("ID características a eliminar: "))
+            c = Caracteristicas(id_c, None, None, None)
+            c.eliminar_de_caracteristicas()
+        elif opcion == "8":
+            id_c = int(input("ID características a consultar: "))
+            c = Caracteristicas(id_c, None, None, None)
+            c.consultar_caracteristicas(None, None)
+        elif opcion == "9":
+            id_combate = int(input("ID combate: "))
+            id_participante1 = int(input("ID participante 1: "))
+            id_participante2 = int(input("ID participante 2: "))
+            nombre1 = input("Nombre del participante 1: ")
+            nombre2 = input("Nombre del participante 2: ")
+            tipo_combate = input("Tipo de combate: ")
+
+            combate = combates(id_combate, id_participante1, id_participante2, nombre1, nombre2, tipo_combate)
+            combate.insertar_combates()
+        elif opcion == "10":
+            id_combate = int(input("ID combate a actualizar: "))
+            nombre1 = input("Nuevo nombre del participante 1: ")
+            nombre2 = input("Nuevo nombre del participante 2: ")
+            tipo_combate = input("Nuevo tipo de combate: ")
+
+            combate = combates(id_combate, None, None, None, None, None)
+            combate.actualizar_combates(nombre1, nombre2, tipo_combate)
+        elif opcion == "11":
+            id_combate = int(input("ID combate a eliminar: "))
+            combate = combates(id_combate, None, None, None, None, None)
+            combate.eliminar_de_combates()
+        elif opcion == "12":
+            id_combate = int(input("ID combate a consultar: "))
+            combate = combates(id_combate, None, None, None, None, None)
+            combate.consultar_combates(None, None)
         else:
             print("Opción no válida. Intenta otra vez.")
 
